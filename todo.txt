@@ -1,0 +1,6 @@
+
+
+* overlay hübsch machen
+* overlay domains ohne www und http(s)
+* domain auf 'www' untersuchen
+

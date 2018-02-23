@@ -1,0 +1,12 @@
+#outerDiv {
+	padding: 10px;
+	font-size: 2em;
+}
+
+.entry {
+	cursor: pointer;
+}
+
+.entry:hover {
+	background-color: #aeb7af;
+}

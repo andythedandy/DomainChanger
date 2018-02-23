@@ -1,30 +1,52 @@
-
 // TODO: Should come from user input
 var domains = [
-		'louis.de',
-		'louis.at',
-		'louis-moto.fr',
-		'louis-moto.co.uk',
-		'louis.nl',
-		'louis.be',
-		'louis-moto.it'
-	];
-debugger;
+	'www.louis.de',
+	'www.louis.at',
+	'www.louis-moto.fr',
+	'www.louis-moto.co.uk',
+	'www.louis.nl',
+	'www.louis.be',
+	'www.louis-moto.it'
+];
 
-(function (){
+(function () {
 	let el = document.getElementById('urlList');
+	let url;
 
-	console.log(el);
-
-	let domainList = domains.join('<br>');
-
-	el.appendChild(domainList);
-
-	console.log(tabInfo);
-	let url = tabs.query({
+	browser.tabs.query({
 		active: true,
-		lastFocusedWindow:true
+		currentWindow: true
+	}).then(function (tabs) {
+		let currentTab;
+
+		currentTab = tabs.pop();
+		url = currentTab.url;
+
+		if (url.match(/louis/)) {
+			generateUrlList(currentTab);
+		}
 	});
 
-	console.log(url);
+	function generateUrlList(tab) {
+		let listEl;
+		for (let domain of domains) {
+			listEl = document.createElement('div');
+			listEl.setAttribute('class', 'entry');
+			listEl.addEventListener('click', function (event) {
+				browser.tabs.update(tab.id, {
+					url: replaceDomain(domain)
+				});
+			});
+			listEl.innerHTML = domain.replace(/www\./, '');
+			el.appendChild(listEl);
+		}
+	}
+
+	function replaceDomain(domain) {
+		let parser = document.createElement('a');
+		parser.href = url;
+		parser.hostname = domain;
+
+		return parser.href;
+	}
 })();
