@@ -3,4 +3,8 @@
 * overlay hübsch machen
 * overlay domains ohne www und http(s)
 * domain auf 'www' untersuchen
+* urls sollen in einem eigenen Tab eingetragen werden
+* packetieren
+* nach mdn-Addons hochladen
+
 
