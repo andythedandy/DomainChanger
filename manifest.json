@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "LouisDomainChanger",
-  "version": "1.0",
+  "version": "1.0.1",
   "homepage_url": "https://github.com/AndyLeDandy/DomainChanger",
   "author": "AndyTheDandy",
   "description": "Change all Louis Domains for a single URL for testing purposes",
