@@ -1,5 +1,5 @@
 // TODO: Should come from user input
-var domains = [
+let domains = [
 	'www.louis.de',
 	'www.louis.at',
 	'www.louis-moto.fr',
